@@ -1,0 +1,33 @@
+{
+  "name": "2step_validation",
+  "version": "1.0.0",
+  "description": "a 2 step validation simple software for Iot",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/app.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksinaa/2step_validation.git"
+  },
+  "keywords": [
+    "2step-validation",
+    "Iot"
+  ],
+  "author": "sina mohammadi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ksinaa/2step_validation/issues"
+  },
+  "homepage": "https://github.com/ksinaa/2step_validation#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
