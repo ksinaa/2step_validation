@@ -7,7 +7,7 @@ const Users = new Schema({
         type: String,
         required: true
     },
-    phone: {
+    email: {
         type: String,
         required: true
     },
@@ -16,12 +16,12 @@ const Users = new Schema({
         required: true
     },
     devices: [{
-        deviceID:  Schema.ObjectId,
-        status: {
-            type: String,
-            enum: ['on', 'off']
-        } 
-    }]
+        deviceID: Schema.ObjectId,
+    }],
+    loginCode: {
+        type: String,
+        required: false
+    }
 })
 
 export default mongoose.model('users', Users)
