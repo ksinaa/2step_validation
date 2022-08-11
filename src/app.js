@@ -6,6 +6,7 @@ import 'dotenv/config'
 
 
 import userRouter from './user/userRouter.js';
+import deviceRouter from './device/deviceRouter.js';
 
 const app = express()
 
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.use('/api/user', userRouter);
+app.use('/api/device', deviceRouter)
 
 
 Mongoose.connect(process.env.MONGODB_URL).then(() => {

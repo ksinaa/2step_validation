@@ -16,7 +16,19 @@ const Users = new Schema({
         required: true
     },
     devices: [{
-        deviceID: Schema.ObjectId,
+        name: {
+            type: String,
+            required: true
+        },
+        description: {
+            type: String,
+            required: false
+        },
+        status: {
+            type: String,
+            required: true,
+            enum: ['on', 'off']
+        }
     }],
     loginCode: {
         type: String,
