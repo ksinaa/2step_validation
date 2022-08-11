@@ -1,3 +1,5 @@
+import jwt from 'jsonwebtoken';
+
 import User from './User.js';
 
 const login = async (req, res, next) => {
@@ -33,8 +35,19 @@ const login = async (req, res, next) => {
 
         const user = await User.findOne({email: email})
 
+        const token = jwt.sign({
+            _id: user._id.toString(),
+            email: user.email,
+        }, process.env.TOKEN_SECRET , {expiresIn: '1d'})
+
         if(user.loginCode == key){
-            res.status(200).send('login')
+            res.status(200).send({
+                status: "login succsessfully",
+                body: {
+                    userId: user._id,
+                    token: token
+                }
+            })
         }else{
             res.status(200).send('key is not true')
         }
@@ -44,6 +57,4 @@ const login = async (req, res, next) => {
 }
 
 
-export default {
-    login
-}
+export default {login};

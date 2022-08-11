@@ -12,12 +12,10 @@ const app = express()
 const PORT = process.env.port;
 
 
-
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.use('/api/user', userRouter);
-
 
 
 Mongoose.connect(process.env.MONGODB_URL).then(() => {

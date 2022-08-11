@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 
 
-module.exports = (req, res, next) => {
+export default (req, res, next) => {
 
     const token = req.get('Authorization');
     
@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
 
     let decodedToken;
     try{
-        decodedToken = jwt.verify(token);
+        decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
     }catch(err){
         res.status(403).send('token is invalid')
     }

@@ -5,15 +5,17 @@ const router = express.Router();
 import userController from './userController.js';
 import login from './login.js'
 
-router.get('/', userController.getAllUsers);
+import auth from '../util/auth.js'
 
-router.get('/:id', userController.getUserById);
+router.get('/', auth, userController.getAllUsers);
+
+router.get('/:id', auth, userController.getUserById);
 
 router.post('/', userController.createUser);
 
-router.patch('/:id', userController.updateUser);
+router.put('/:id', auth, userController.updateUser);
 
-router.delete('/:id', userController.deleteUser);
+router.delete('/:id', auth, userController.deleteUser);
 
 
 //login
