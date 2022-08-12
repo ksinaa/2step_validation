@@ -2,7 +2,6 @@ import express from "express";
 
 const router = express.Router();
 
-import Device from './Device.js'
 import User from '../user/User.js'
 
 router.post('/:userId', async (req, res, next) => {
@@ -24,9 +23,6 @@ router.post('/:userId', async (req, res, next) => {
         status: "device created",
         user: neweUser
     });
-
-
-
-})
+});
 
 export default router;
